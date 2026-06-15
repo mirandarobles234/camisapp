@@ -10,7 +10,7 @@ async function run() {
 
     await client.db("admin").command({ ping: 1 });
 
-    console.log("MongoDB local conectado correctamente");
+    console.log("MongoDB local conectado correctamente con Mongoose actualizado");
 
   } finally {
     await client.close();
