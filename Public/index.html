@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio Creativo 2027</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- PANTALLA DE AUTENTICACIÓN -->
+<section id="pantallaAuth" class="auth-screen">
+  <div class="auth-container">
+
+    <div class="auth-brand">
+      <span class="badge">GEN 2027</span>
+      <h1>Diseña la camisa de tu generación</h1>
+      <p>Inicia sesión o crea una cuenta para participar.</p>
+    </div>
+
+    <div class="auth-card-app">
+
+      <div class="auth-tabs">
+        <button id="tabLogin" class="tab-btn activo">
+          Iniciar sesión
+        </button>
+
+        <button id="tabRegistro" class="tab-btn">
+          Crear cuenta
+        </button>
+      </div>
+
+      <div id="formLogin" class="auth-form">
+        <h2>Bienvenido</h2>
+
+        <input
+          type="email"
+          id="loginEmail"
+          placeholder="correo@ejemplo.com"
+        >
+
+        <input
+          type="password"
+          id="loginClave"
+          placeholder="Contraseña"
+        >
+
+        <button id="btnLogin">
+          Iniciar sesión
+        </button>
+      </div>
+
+      <div id="formRegistro" class="auth-form oculto">
+        <h2>Crear cuenta</h2>
+
+        <input
+          type="text"
+          id="registroNombre"
+          placeholder="Nombre completo"
+        >
+
+        <input
+          type="email"
+          id="registroEmail"
+          placeholder="correo@ejemplo.com"
+        >
+
+        <input
+          type="password"
+          id="registroClave"
+          placeholder="Contraseña"
+        >
+
+        <button id="btnRegistro">
+          Crear cuenta
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+ 
+    <!-- HERO -->
+    <header class="hero">
+        <div>
+            <span class="badge">EXPO DISEÑO · PROMO 2027</span>
+
+            <h1>Studio Creativo 2027</h1>
+
+            <p>
+                Personaliza una propuesta gráfica para la camiseta oficial
+                de la generación 2027 y comparte tu creatividad.
+            </p>
+        </div>
+    </header>
+
+    <main class="contenedor">
+
+        <!-- PANEL -->
+        <section class="panel card">
+
+            <div class="section-title">
+                <h2>Diseña tu camiseta</h2>
+                <p>
+                    Selecciona una parte de la camiseta y cambia sus colores.
+                </p>
+            </div>
+
+            <div class="formulario">
+
+                <input type="hidden" id="camisetaId">
+
+                <label for="nombreDiseno">Nombre del diseño</label>
+                <input
+                    type="text"
+                    id="nombreDiseno"
+                    placeholder="Ej: Sweet Pink 2027"
+                >
+
+                <label for="autor">Autor</label>
+                <input
+                    type="text"
+                    id="autor"
+                    placeholder="Ej: Miranda Robles Chaves"
+                >
+
+                <label for="descripcion">Descripción</label>
+                <textarea
+                    id="descripcion"
+                    placeholder="Describe tu propuesta creativa..."
+                ></textarea>
+
+                <label for="colorPicker">Color seleccionado</label>
+                <input
+                    type="color"
+                    id="colorPicker"
+                    value="#ffb6d9"
+                >
+
+                <p id="parteActual">
+                    Selecciona una parte de la camiseta
+                </p>
+
+                <button id="btnGuardar">
+                    Guardar diseño
+                </button>
+
+                <button
+                    id="btnActualizar"
+                    class="btn-edit oculto">
+                    Actualizar diseño
+                </button>
+
+                <button
+                    id="btnCancelar"
+                    class="btn-cancel oculto">
+                    Cancelar edición
+                </button>
+
+                <button
+                    id="btnLimpiar"
+                    class="btn-secondary">
+                    Reiniciar colores
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- CAMISETA -->
+        <section class="camiseta-preview card">
+
+            <svg id="camisetaSvg" viewBox="0 0 320 380">
+
+                <!-- Manga izquierda -->
+                <path
+                    id="mangaIzquierda"
+                    class="parte-camiseta"
+                    d="M105 90 L45 125 L70 190 L118 160 Z"
+                    fill="#fff5f8"
+                    stroke="#d86b98"
+                    stroke-width="3"
+                />
+
+                <!-- Manga derecha -->
+                <path
+                    id="mangaDerecha"
+                    class="parte-camiseta"
+                    d="M215 90 L275 125 L250 190 L202 160 Z"
+                    fill="#fff5f8"
+                    stroke="#d86b98"
+                    stroke-width="3"
+                />
+
+                <!-- Torso -->
+                <path
+                    id="torso"
+                    class="parte-camiseta"
+                    d="M105 90
+                       Q130 120 160 120
+                       Q190 120 215 90
+                       L230 180
+                       Q225 260 215 325
+                       Q190 340 160 340
+                       Q130 340 105 325
+                       Q95 260 90 180 Z"
+                    fill="#fff5f8"
+                    stroke="#d86b98"
+                    stroke-width="3"
+                />
+
+                <!-- Cuello -->
+                <path
+                    id="cuello"
+                    class="parte-camiseta"
+                    d="M130 90
+                       Q160 125 190 90
+                       Q160 105 130 90"
+                    fill="#ffe4ee"
+                    stroke="#d86b98"
+                    stroke-width="3"
+                />
+
+                <!-- Corazón -->
+                <path
+                    d="M150 190
+                       C145 180 130 180 130 195
+                       C130 210 150 220 160 235
+                       C170 220 190 210 190 195
+                       C190 180 175 180 170 190
+                       C165 198 155 198 150 190"
+                    fill="#ff6fa9"
+                />
+
+                <!-- Texto -->
+                <text
+                    x="160"
+                    y="285"
+                    text-anchor="middle"
+                    font-size="22"
+                    fill="#c24f82"
+                    font-weight="bold">
+                    GEN 2027
+                </text>
+
+            </svg>
+
+        </section>
+
+        <!-- LISTA -->
+        <section class="lista-disenos card">
+
+            <div class="section-title">
+                <h2>Diseños guardados</h2>
+                <p>
+                    Visualiza, edita y administra los diseños registrados.
+                </p>
+            </div>
+
+            <div id="contenedorCamisetas">
+
+                <div class="mensaje-vacio">
+                    Aún no hay diseños registrados.
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
